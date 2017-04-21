@@ -1,3 +1,23 @@
-<p>
-  home works!
-</p>
+<form>
+  <div>
+    <input placeholder="Item name" type="text" name="name" [(ngModel)]="item.name">
+  </div>
+  <div>
+    <input placeholder="Item description" type="text" name="description" [(ngModel)]="item.description">
+  </div>
+  <div>
+    <input placeholder="Item price" type="number" name="price" [(ngModel)]="item.price">
+  </div>  
+  <div>
+    <input type="file" name="name">
+  </div>
+
+  <button (click)="register()">Register</button>
+</form>
+
+<div>
+  <h2>Items</h2>
+  <div *ngFor="let item of itemList">
+    <label>{{ item.name }}</label>
+  </div>
+</div>
