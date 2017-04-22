@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as firebase from 'firebase';
+
 import { BaseService } from '../services/base.service';
 
 import { Item } from '../shared/item';
@@ -37,5 +39,18 @@ export class HomeComponent implements OnInit {
 
   remove(key: string) {
     this.baseService.delete(key);
+  }
+
+  uploadImage() {
+    let storage = firebase.storage().ref();
+    let path = '/images/';
+    let files = [(<HTMLInputElement>document.getElementById('image')).files[0]];
+
+    for(let image of files) {
+      storage.child(path + image.name).put(image)
+        .then(() => {
+          alert('Image uploaded!');
+        });
+    }
   }
 }

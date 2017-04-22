@@ -12,9 +12,6 @@
         <div class="form-group">
           <input placeholder="Item price" class="form-control" type="number" name="price" [(ngModel)]="item.price">
         </div>  
-        <div>
-          <input type="file" name="name">
-        </div>
 
         <button class="btn btn-primary" (click)="register()">Register</button>
       </form>
@@ -32,6 +29,17 @@
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <div class="container row">
+    <div class="col-md-offset-1 col-md-11 image-upload">
+      <h2>Image upload</h2>
+        <div>
+          <input type="file" name="image" id="image">
+          <button (click)="uploadImage()" class="btn btn-primary">Upload image</button>
+        </div>
+      <hr>
     </div>
   </div>
 </div>
